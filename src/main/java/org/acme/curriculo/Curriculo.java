@@ -1,20 +1,35 @@
 package org.acme.curriculo;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
+import org.acme.curriculo.TitularCurriculo;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Cacheable
 public class Curriculo extends PanacheEntity {
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Usuario_Curriculo usuario_Curriculo
 
-    @Column(length = 30, unique = true)
-    private String title;
 
-    @Column(length = 60, unique = true)
-    private String name;
-    
+    @Deprecated
+    public Curriculo(){}
+
+    public Curriculo(Usuario_Curriculo usuario_Curriculo{
+        this.usuario_Curriculo = titularCurriculo;
+    }
+
+    public Usuario_Curriculo getCurriculo() {
+        return titularCurriculo;
+    }
+
+    public void setCurriculoUsuario_Curriculo usuario_Curriculo{
+        this.usuario_Curriculo = usuario_Curriculo
+    }
+
+
 }

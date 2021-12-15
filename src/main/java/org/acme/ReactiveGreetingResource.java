@@ -13,4 +13,5 @@ public class ReactiveGreetingResource {
     public String hello() {
         return "Hello RESTEasy Reactive";
     }
+
 }
